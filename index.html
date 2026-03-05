@@ -655,21 +655,15 @@
         });
     }
 
-    // ----- download simulation (light) -----
-    function startDownload() {
-        const overlay = document.getElementById('loadingOverlay');
-        overlay.style.display = 'flex';
-        // simulate download start
-        const fakeLink = document.createElement('a');
-        fakeLink.href = '#';
-        fakeLink.download = 'MineTycoon-v1.0.0.apk';
-        // no actual download, just demonstration
-        setTimeout(() => {
-            overlay.style.display = 'none';
-            alert('✨ Download started (demo — replace with real apk url)');
-        }, 2000);
-    }
-
+ // ----- real download with loading overlay -----
+function startDownload() {
+    const overlay = document.getElementById('loadingOverlay');
+    overlay.style.display = 'flex';
+    // Redirect to the real APK after a short delay
+    setTimeout(() => {
+        window.location.href = 'https://github.com/minetycoon956-eng/mine-tycoon-web/releases/download/v1.0.0/app-debug.apk';
+    }, 1500);
+}
     // optional: random referral on load
     window.addEventListener('load', function() {
         const codeEl = document.getElementById('referralCode');
@@ -684,4 +678,5 @@
 
 <!-- ensure first FAQ is open by default after possible toggle -->
 </body>
+
 </html>
